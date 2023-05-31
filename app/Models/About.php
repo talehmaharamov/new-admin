@@ -15,6 +15,6 @@ class About extends Model implements TranslatableContract
     protected $fillable = ['photo'];
     public function getActivitylogOptions(): LogOptions
     {
-        return LogOptions::defaults()->logOnly(['photo']);
+        return LogOptions::defaults()->logAll();
     }
 }

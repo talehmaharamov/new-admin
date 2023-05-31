@@ -13,7 +13,7 @@
                                     <h4 class="mb-sm-0">@lang('backend.permissions'):</h4>
                                 </div>
                             </div>
-                            <form action="{{ route('backend.permissions.store') }}" method="POST" class="needs-validation" novalidate="" enctype="multipart/form-data">
+                            <form action="{{ route('system.permissions.store') }}" method="POST" class="needs-validation" novalidate="" enctype="multipart/form-data">
                                 @csrf
                                 <div class="mb-3">
                                     <label>@lang('backend.name') <span class="text-danger">*</span></label>

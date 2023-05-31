@@ -11,7 +11,7 @@
                                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
                                     <h4 class="mb-sm-0">@lang('backend.informations'):</h4>
                                 </div>
-                                <form action="{{ route('backend.informations.update',auth()->user()->id) }}"
+                                <form action="{{ route('system.informations.update',auth()->user()->id) }}"
                                       method="POST" class="needs-validation" novalidate=""
                                       enctype="multipart/form-data">
                                     @method('PUT')
@@ -60,7 +60,7 @@
                                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
                                     <h4 class="mb-sm-0">@lang('backend.change-password'):</h4>
                                 </div>
-                                <form action="{{ route('backend.informations.store') }}" method="POST"
+                                <form action="{{ route('system.informations.store') }}" method="POST"
                                       class="needs-validation" novalidate enctype="multipart/form-data">
                                     @csrf
                                     <input hidden name="id" value="{{ \Illuminate\Support\Facades\Auth::user()->id }}">
@@ -80,6 +80,7 @@
                                         <div class="input-group" id="datepicker1">
                                             <input id="password" type="password" name="password" class="form-control"
                                                    required="">
+                                            <span id="copy_password" class="input-group-text"><i class="fas fa-copy"></i></span>
                                             <span id="show_password" class="input-group-text"><i id="show_icon"
                                                                                                  class="fas fa-eye"></i></span>
                                             <span id="generate_password" class="input-group-text"><i

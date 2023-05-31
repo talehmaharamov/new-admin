@@ -7,7 +7,7 @@ return [
     ],
     'translation_methods' => ['trans', '__'],
     'scan_paths' => [app_path(), resource_path()],
-    'ui_url' => 'admin/manage-languages',
+    'ui_url' => 'admin/system/translations',
     'database' => [
         'connection' => '',
         'languages_table' => 'languages',

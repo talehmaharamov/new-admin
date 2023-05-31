@@ -16,6 +16,6 @@ class ContentPhotos extends Model
     public $timestamps = [];
     public function getActivitylogOptions(): LogOptions
     {
-        return LogOptions::defaults()->logOnly(['photo']);
+        return LogOptions::defaults()->logAll();
     }
 }

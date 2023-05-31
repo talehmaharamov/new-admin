@@ -13,6 +13,14 @@ $(document).ready(function () {
             $("#show_icon").removeClass('fas fa-eye-slash').addClass('fas fa-eye');
         }
     });
+    $('#copy_password').click(function() {
+        var passwordValue = $('#password').val();
+        var tempInput = $('<input>');
+        $('body').append(tempInput);
+        tempInput.val(passwordValue).select();
+        document.execCommand('copy');
+        tempInput.remove();
+    });
     $("#show_current_password").click(function () {
         var passwordCurrentInput = $('input[name="current_password"]');
         var passwordCurrentType = passwordCurrentInput.prop('type');

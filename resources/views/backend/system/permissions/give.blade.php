@@ -33,7 +33,7 @@
                                 <td>{{ $user->name }}</td>
                                 <td>{{ $user->email }}</td>
                                 <td class="text-center">
-                                    <a class="btn btn-primary" href={{ route('backend.giveUserPermission',['user'=>$user->id]) }}>
+                                    <a class="btn btn-primary" href={{ route('system.giveUserPermission',['user'=>$user->id]) }}>
                                         <i class="fas fa-plus"></i>
                                     </a>
                                 </td>

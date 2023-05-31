@@ -1,4 +1,4 @@
-<div class="mb-5 text-center">
+<div class="mb-3 text-center">
     <div>
         <button type="submit" class="btn btn-primary waves-effect waves-light me-1">
             @lang('backend.submit')

@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Backend;
+namespace App\Http\Controllers\Backend\System;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Backend\Create\SiteLanguageRequest;
 use App\Http\Requests\Backend\Update\SiteLanguageRequest as updateRequest;
-
 use App\Models\SiteLanguage;
 use Illuminate\Support\Facades\Gate;
 use Symfony\Component\HttpFoundation\Response;
@@ -16,18 +15,18 @@ class SiteLanguageController extends Controller
     {
         abort_if(Gate::denies('languages index'), Response::HTTP_FORBIDDEN, '403 Forbidden');
         $siteLanguages = SiteLanguage::all();
-        return view('backend.site-languages.index', get_defined_vars());
+        return view('backend.system.site-languages.index', get_defined_vars());
     }
     public function create()
     {
         abort_if(Gate::denies('languages create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-        return view('backend.site-languages.create');
+        return view('backend.system.site-languages.create');
     }
     public function edit($id)
     {
         abort_if(Gate::denies('languages edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
         $language = SiteLanguage::find($id);
-        return view('backend.site-languages.edit', get_defined_vars());
+        return view('backend.system.site-languages.edit', get_defined_vars());
     }
     public function store(SiteLanguageRequest $request)
     {
@@ -41,10 +40,10 @@ class SiteLanguageController extends Controller
             $siteLanguage->status = 1;
             $siteLanguage->save();
             alert()->success(__('messages.success'));
-            return redirect()->route('backend.site-languages.index');
+            return redirect()->route('system.site-languages.index');
         } catch (\Exception $e) {
             alert()->error(__('messages.error'));
-            return redirect()->route('backend.site-languages.index');
+            return redirect()->route('system.site-languages.index');
         }
     }
 
@@ -62,10 +61,10 @@ class SiteLanguageController extends Controller
                 'icon' => ($request->hasFile('icon') ? $icon : SiteLanguage::find($id)->icon),
             ]);
             alert()->success(__('messages.success'));
-            return redirect()->route('backend.site-languages.index');
+            return redirect()->route('system.site-languages.index');
         } catch (\Exception $e) {
             alert()->error(__('messages.error'));
-            return redirect()->route('backend.site-languages.index');
+            return redirect()->route('system.site-languages.index');
         }
     }
 
@@ -78,7 +77,7 @@ class SiteLanguageController extends Controller
         } else {
             SiteLanguage::where('id', $id)->update(['status' => 1]);
         }
-        return redirect()->route('backend.site-languages.index');
+        return redirect()->route('system.site-languages.index');
     }
 
     public function delSiteLang($id)
@@ -88,10 +87,10 @@ class SiteLanguageController extends Controller
             unlink(SiteLanguage::find($id)->icon);
             SiteLanguage::find($id)->delete();
             alert()->success(__('messages.success'));
-            return redirect()->route('backend.site-languages.index');
+            return redirect()->route('system.site-languages.index');
         } catch (\Exception $e) {
             alert()->error(__('messages.error'));
-            return redirect()->route('backend.site-languages.index');
+            return redirect()->route('system.site-languages.index');
         }
     }
 }

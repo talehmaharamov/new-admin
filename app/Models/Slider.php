@@ -17,6 +17,6 @@ class Slider extends Model implements TranslatableContract
 
     public function getActivitylogOptions(): LogOptions
     {
-        return LogOptions::defaults()->logOnly(['photo', 'alt']);
+        return LogOptions::defaults()->logAll();
     }
 }

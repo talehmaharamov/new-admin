@@ -20,7 +20,7 @@
                             <div class="page-title-box d-sm-flex align-items-center justify-content-between">
                                 <h4 class="mb-sm-0">@lang('backend.users'):</h4>
                                 @can('users create')
-                                    <a href="{{ route('backend.users.create') }}"
+                                    <a href="{{ route('system.users.create') }}"
                                        class="btn btn-primary"><i class="fas fa-plus"></i>
                                         &nbsp;@lang('backend.add-new')
                                     </a>
@@ -49,7 +49,7 @@
                                     @can('users delete')
                                     <td class="text-center">
                                         <a class="btn btn-primary" title="@lang('backend.delete')"
-                                           href="{{ route('backend.giveUserPermission',['user'=>$user->id]) }}">
+                                           href="{{ route('system.giveUserPermission',['user'=>$user->id]) }}">
                                             <i class="fas fa-key"></i>
                                         </a>
                                         @if($user->id != auth()->user()->id)

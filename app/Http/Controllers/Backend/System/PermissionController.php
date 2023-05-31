@@ -37,10 +37,10 @@ class PermissionController extends Controller
                 ]);
             }
             alert()->success(__('messages.add-success'));
-            return redirect()->route('backend.permissions.index');
+            return redirect()->route('system.permissions.index');
         } catch (Exception $e) {
             alert()->error(__('messages.error'));
-            return redirect()->route('backend.permissions.index');
+            return redirect()->route('system.permissions.index');
         }
     }
 
@@ -59,10 +59,10 @@ class PermissionController extends Controller
                 'guard_name' => $request->guardName,
             ]);
             alert()->success(__('messages.success'));
-            return redirect()->route('backend.permissions.index');
+            return redirect()->route('system.permissions.index');
         } catch (Exception $e) {
             alert()->error(__('messages.error'));
-            return redirect()->route('backend.permissions.index');
+            return redirect()->route('system.permissions.index');
         }
     }
 
@@ -77,6 +77,7 @@ class PermissionController extends Controller
     {
         check_permission('permissions create');
         $permissions = Permission::where('guard_name', 'admin')->orderBy('name', 'asc')->get();
+        $permissionGroups = Permission::where('guard_name', 'admin')->get()->groupBy('group_name');
         return view('backend.system.permissions.give-user', get_defined_vars());
     }
 
