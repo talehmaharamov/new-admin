@@ -12,13 +12,9 @@
                         <div class="col-12">
                             <div class="page-title-box d-sm-flex align-items-center justify-content-between">
                                 <h4 class="mb-sm-0">@lang('backend.permissions'):</h4>
-                                {{--                                <a href="{{ route('backend.permissions.create') }}" class="btn btn-primary"><i--}}
-                                {{--                                        class="fas fa-plus"></i> &nbsp;@lang('backend.add-new')--}}
-                                {{--                                </a>--}}
                                 <button data-bs-toggle="modal" data-bs-target="#exampleModalScrollable"
-                                        class="btn btn-primary"><i
-                                        class="fas fa-plus"></i> &nbsp;@lang('backend.add-new')
-                                </button>
+                                        class="btn btn-primary"><i class="fas fa-plus"></i>
+                                    &nbsp;@lang('backend.add-new')</button>
                             </div>
                         </div>
                         <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap"
@@ -35,9 +31,16 @@
                                 <tr>
                                     <td>{{ $permission->id }}</td>
                                     <td>{{ $permission->name }}</td>
-                                    @include('backend.templates.components.dt-settings',['variable' => 'permissions','value' => $permission])
+                                    @include('backend.templates.components.dt-system-settings',['variable' => 'permissions','value' => $permission])
                                 </tr>
                             @endforeach
+                            {{--                            @foreach($permissionGroups as $permission)--}}
+                            {{--                                <tr>--}}
+                            {{--                                    <td>{{ $permission[0]['id'] }}</td>--}}
+                            {{--                                    <td>{{ $permission[0]['group_name'] }}</td>--}}
+                            {{--                                    @include('backend.templates.components.dt-system-settings',['variable' => 'permissions','value' => $permission])--}}
+                            {{--                                </tr>--}}
+                            {{--                            @endforeach--}}
                             </tbody>
                         </table>
                     </div>
@@ -55,7 +58,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="{{ route('backend.permissions.store') }}" method="POST" class="needs-validation"
+                    <form action="{{ route('system.permissions.store') }}" method="POST" class="needs-validation"
                           novalidate="" enctype="multipart/form-data">
                         @csrf
                         <div class="mb-3">
@@ -94,16 +97,7 @@
                                 </label>
                             </div>
                         </div>
-                        <div class="mb-0 text-center">
-                            <div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-light waves-effect"
-                                            data-bs-dismiss="modal">@lang('backend.cancel')</button>
-                                    <button type="submit"
-                                            class="btn btn-primary waves-effect waves-light">@lang('backend.submit')</button>
-                                </div>
-                            </div>
-                        </div>
+
                     </form>
                 </div>
             </div>

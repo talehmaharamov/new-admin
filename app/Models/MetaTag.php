@@ -12,7 +12,7 @@ class MetaTag extends Model
    protected $guarded = [];
     public function getActivitylogOptions(): LogOptions
     {
-        return LogOptions::defaults()->logOnly(['attribute','attribute_name','content']);
+        return LogOptions::defaults()->logAll();
     }
 
 }

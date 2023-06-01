@@ -7,6 +7,8 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
+use Spatie\Activitylog\LogOptions;
+use Spatie\Activitylog\Traits\LogsActivity;
 use Spatie\Permission\Traits\HasPermissions;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -18,6 +20,7 @@ class Admin extends Authenticatable
         HasApiTokens,
         HasProfilePhoto,
         Notifiable,
+        LogsActivity,
         TwoFactorAuthenticatable;
 
     protected $guard = 'admin';
@@ -39,4 +42,8 @@ class Admin extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+    public function getActivitylogOptions(): LogOptions
+    {
+        return LogOptions::defaults()->logAll();
+    }
 }

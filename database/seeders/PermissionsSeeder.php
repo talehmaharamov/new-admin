@@ -21,7 +21,6 @@ class PermissionsSeeder extends Seeder
             'users',
             'permissions',
             'report',
-            'dodenv',
             'news',
             'catalog',
             'media',
@@ -41,6 +40,7 @@ class PermissionsSeeder extends Seeder
             'newsletter delete',
             'mail index',
             'mail delete',
+            'dodenv index',
         ];
         foreach ($singlePermissions as $single) {
             $permission = new \Spatie\Permission\Models\Permission();

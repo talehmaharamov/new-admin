@@ -12,6 +12,6 @@ class SiteLanguage extends Model
     protected $guarded = [];
     public function getActivitylogOptions(): LogOptions
     {
-        return LogOptions::defaults()->logOnly(['name','code','icon']);
+        return LogOptions::defaults()->logAll();
     }
 }

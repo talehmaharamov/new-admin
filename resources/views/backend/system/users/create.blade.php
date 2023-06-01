@@ -13,7 +13,7 @@
                                     <h4 class="mb-sm-0">@lang('backend.add-new-user'):</h4>
                                 </div>
                             </div>
-                            <form action="{{ route('backend.users.store') }}" method="POST" class="needs-validation" novalidate="" enctype="multipart/form-data">
+                            <form action="{{ route('system.users.store') }}" method="POST" class="needs-validation" novalidate="" enctype="multipart/form-data">
                                 @csrf
                                 <div class="mb-3">
                                     <label>@lang('backend.name') <span class="text-danger">*</span></label>

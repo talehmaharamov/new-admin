@@ -12,6 +12,6 @@ class Contact extends Model
 
     public function getActivitylogOptions(): LogOptions
     {
-        return LogOptions::defaults()->logOnly(['title','description','read']);
+        return LogOptions::defaults()->logAll();
     }
 }

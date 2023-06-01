@@ -10,36 +10,35 @@
                             <div class="card-body">
                                 <div class="col-12">
                                     <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                                        <h4 class="mb-sm-0">@lang('backend.settings') : #{{ $currentSetting->id }}</h4>
+                                        <h4 class="mb-sm-0">@lang('backend.settings'): @lang('backend.add-new')</h4>
                                     </div>
                                 </div>
-                                <form action="{{ route('backend.settings.update',$currentSetting->id) }}" method="POST"
+                                <form action="{{ route('system.settings.store') }}" method="POST"
                                       class="needs-validation" novalidate="" enctype="multipart/form-data">
                                     @csrf
-                                    @method('PUT')
                                     <div class="mb-3">
                                         <label>@lang('backend.name') <span class="text-danger">*</span></label>
                                         <input type="text" name="name" class="form-control" required=""
-                                               value="{{ $currentSetting->name }}">
+                                               placeholder="instagram">
                                         {!! validation_response('backend.name') !!}
                                     </div>
                                     <div class="mb-3">
                                         <label>@lang('backend.link') <span class="text-danger">*</span></label>
-                                        <textarea class="form-control" name="link" rows="5"
-                                                  required>{{ $currentSetting->link }}</textarea>
+                                        <textarea class="form-control" name="link" rows="5" required
+                                                  placeholder="https://www.instagram.com/@username"></textarea>
                                         {!! validation_response('backend.link') !!}
                                     </div>
-                                    <div class="mb-0 text-center">
-                                        <div>
-                                            <button type="submit" class="btn btn-primary waves-effect waves-light me-1">
-                                                @lang('backend.submit')
-                                            </button>
-                                            <a href="{{url()->previous()}}" type="button"
-                                               class="btn btn-secondary waves-effect">
-                                                @lang('backend.cancel')
-                                            </a>
-                                        </div>
+                                    <div class="mb-3">
+                                        <label>@lang('backend.type') <span class="text-danger">*</span></label>
+                                        <select class="form-control" name="type">
+                                            <option
+                                                value="{{ \App\Http\Enums\SettingEnum::OTHER }}">@lang('backend.other')</option>
+                                            <option
+                                                value="{{ \App\Http\Enums\SettingEnum::SOSIAL }}">@lang('backend.sosial')</option>
+                                        </select>
+                                        {!! validation_response('backend.name') !!}
                                     </div>
+                                    @include('backend.templates.components.buttons')
                                 </form>
                             </div>
                         </div>

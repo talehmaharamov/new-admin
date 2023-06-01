@@ -61,9 +61,9 @@ class ContentController extends Controller
     public function subAltCat($cat_id, $alt_id, $sub_id)
     {
         if (Content::where('category_id', $cat_id)->where('alt_id', $alt_id)->where('sub_id', $sub_id)->exists()) {
-            return response()->json(['content' => Content::where('category_id', $cat_id)->where('alt_id', $alt_id)->where('sub_id', $sub_id)->with('photos')->get()],200);
+            return response()->json(['content' => Content::where('category_id', $cat_id)->where('alt_id', $alt_id)->where('sub_id', $sub_id)->with('photos')->get()], 200);
         } else {
-            return response()->json(['content' => 'content-is-empty'],404);
+            return response()->json(['content' => 'content-is-empty'], 404);
         }
     }
 
@@ -71,9 +71,9 @@ class ContentController extends Controller
     {
         $categoryId = Category::where('slug', 'news')->value('id');
         if (Content::where('category_id', $categoryId)->exists()) {
-            return response()->json(['news' => Content::where('category_id', $categoryId)->get()],200);
+            return response()->json(['news' => Content::where('category_id', $categoryId)->get()], 200);
         } else {
-            return response()->json(['news' => 'news-is-empty'],404);
+            return response()->json(['news' => 'news-is-empty'], 404);
         }
     }
 }

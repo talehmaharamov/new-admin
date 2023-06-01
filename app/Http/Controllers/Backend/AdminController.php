@@ -18,13 +18,13 @@ class AdminController extends Controller
     {
         check_permission('users index');
         $users = Admin::all();
-        return view('backend.users.index', get_defined_vars());
+        return view('backend.system.users.index', get_defined_vars());
     }
 
     public function create()
     {
         abort_if(Gate::denies('users create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-        return view('backend.users.create');
+        return view('backend.system.users.create');
     }
 
     public function delAdmin($id)
@@ -42,10 +42,10 @@ class AdminController extends Controller
                 'password' => Hash::make($request->password),
             ]);
             alert()->success(__('messages.success'));
-            return redirect()->route('backend.users.index');
+            return redirect()->route('system.users.index');
         } catch (\Exception $e) {
             alert()->error(__('messages.error'));
-            return redirect()->route('backend.users.index');
+            return redirect()->route('system.users.index');
         }
     }
 }

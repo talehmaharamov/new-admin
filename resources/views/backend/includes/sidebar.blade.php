@@ -163,7 +163,7 @@
                 @endcan
                 @can('settings index')
                     <li>
-                        <a href="{{ route('backend.settings.index') }}" class="waves-effect">
+                        <a href="{{ route('system.settings.index') }}" class="waves-effect">
                             <i class="ri-settings-2-fill"></i>
                             <span>@lang('backend.settings')</span>
                         </a>
@@ -196,15 +196,15 @@
                 @endcan
                 @can('dodenv index')
                     <li>
-                        <a target="_blank" href="{{ url('admin/env') }}" class="waves-effect">
+                        <a target="_blank" href="{{ url(config('dotenveditor.route.prefix')) }}" class="waves-effect">
                             <i class="fab fa-envira"></i>
-                            <span>@lang('backend.dod-env')</span>
+                            <span>@lang('backend.dodenv')</span>
                         </a>
                     </li>
                 @endcan
                 @can('languages index')
                     <li>
-                        <a target="_blank" href="{{ url('admin/manage-languages') }}" class="waves-effect">
+                        <a target="_blank" href="{{ url(config('translation.ui_url')) }}" class="waves-effect">
                             <i class="fas fa-flag"></i>
                             <span>@lang('backend.language-panel')</span>
                         </a>

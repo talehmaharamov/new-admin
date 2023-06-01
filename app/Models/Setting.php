@@ -12,6 +12,6 @@ class Setting extends Model
     protected $guarded = [];
     public function getActivitylogOptions(): LogOptions
     {
-        return LogOptions::defaults()->logOnly(['name','link']);
+        return LogOptions::defaults()->logAll();
     }
 }

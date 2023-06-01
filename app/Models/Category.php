@@ -22,6 +22,6 @@ class Category extends Model implements TranslatableContract
 
     public function getActivitylogOptions(): LogOptions
     {
-        return LogOptions::defaults()->logOnly(['slug']);
+        return LogOptions::defaults()->logAll();
     }
 }
