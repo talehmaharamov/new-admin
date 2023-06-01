@@ -34,6 +34,13 @@
                                     @include('backend.templates.components.dt-system-settings',['variable' => 'permissions','value' => $permission])
                                 </tr>
                             @endforeach
+                            {{--                            @foreach($permissionGroups as $permission)--}}
+                            {{--                                <tr>--}}
+                            {{--                                    <td>{{ $permission[0]['id'] }}</td>--}}
+                            {{--                                    <td>{{ $permission[0]['group_name'] }}</td>--}}
+                            {{--                                    @include('backend.templates.components.dt-system-settings',['variable' => 'permissions','value' => $permission])--}}
+                            {{--                                </tr>--}}
+                            {{--                            @endforeach--}}
                             </tbody>
                         </table>
                     </div>

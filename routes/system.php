@@ -32,7 +32,7 @@ Route::group(['middleware' => 'auth:admin', 'as' => 'system.'], function () {
         Route::get('/seo/{id}/delete', [App\Http\Controllers\Backend\MetaController::class, 'delSeo'])->name('delSeo');
         Route::get('/report/{id}/delete', [\App\Http\Controllers\Backend\System\ReportController::class, 'delReport'])->name('delReport');
         Route::get('/report/clean-all', [\App\Http\Controllers\Backend\System\ReportController::class, 'cleanAllReport'])->name('cleanAllReport');
-        Route::get('/permission/{id}/delete', [\App\Http\Controllers\Backend\System\PermissionController::class, 'delPermission'])->name('permissionsDelete');
+        Route::get('/permission/{id}/delete', [\App\Http\Controllers\Backend\System\PermissionController::class, 'delete'])->name('permissionsDelete');
         Route::get('/newsletter/{id}/delete', [App\Http\Controllers\Backend\NewsletterController::class, 'delNewsletter'])->name('delNewsletter');
     });
     Route::group(['name' => 'resource'], function () {

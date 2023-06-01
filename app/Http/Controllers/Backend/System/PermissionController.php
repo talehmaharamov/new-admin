@@ -16,6 +16,7 @@ class PermissionController extends Controller
     {
         check_permission('permissions index');
         $permissions = Permission::all();
+        $permissionGroups = Permission::where('guard_name', 'admin')->get()->groupBy('group_name');
         return view('backend.system.permissions.index', get_defined_vars());
     }
 
@@ -66,25 +67,12 @@ class PermissionController extends Controller
         }
     }
 
-    public function givePermission()
-    {
-        check_permission('permissions create');
-        $users = Admin::all();
-        return view('backend.system.permissions.give', get_defined_vars());
-    }
-
     public function giveUserPermission(Admin $user)
     {
         check_permission('permissions create');
         $permissions = Permission::where('guard_name', 'admin')->orderBy('name', 'asc')->get();
         $permissionGroups = Permission::where('guard_name', 'admin')->get()->groupBy('group_name');
         return view('backend.system.permissions.give-user', get_defined_vars());
-    }
-
-    public function delPermission($id)
-    {
-        check_permission('permissions delete');
-        return CRUDHelper::remove_item('\Spatie\Permission\Models\Permission', $id);
     }
 
     public function giveUserPermissionUpdate(Request $request)
@@ -101,5 +89,10 @@ class PermissionController extends Controller
             alert()->error(__('messages.error'));
             return redirect()->route('system.giveUserPermission', $admin->id);
         }
+    }
+    public function delete($id)
+    {
+        check_permission('permissions delete');
+        return CRUDHelper::remove_item('\Spatie\Permission\Models\Permission', $id);
     }
 }
