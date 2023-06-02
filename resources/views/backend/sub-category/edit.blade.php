@@ -20,7 +20,7 @@
                                         </div>
                                     </div>
                                     <ul class="nav nav-pills nav-justified" role="tablist">
-                                        @foreach(active_langs() as $lan)
+                                        @foreach(getActiveLanguages() as $lan)
                                             <li class="nav-item waves-effect waves-light">
                                                 <a class="nav-link @if($loop->first) active @endif" data-bs-toggle="tab"
                                                    href="#{{ $lan->code }}" role="tab" aria-selected="true">
@@ -32,7 +32,7 @@
                                         @endforeach
                                     </ul>
                                     <div class="tab-content p-3 text-muted">
-                                        @foreach(active_langs() as $lan)
+                                        @foreach(getActiveLanguages() as $lan)
                                             <div class="tab-pane @if($loop->first) active show @endif"
                                                  id="{{ $lan->code }}" role="tabpanel">
                                                 <div class="form-group row">
@@ -41,7 +41,7 @@
                                                         <input name="name[{{ $lan->code }}]" type="text"
                                                                class="form-control" required=""
                                                                value="{{ $category->translate($lan->code)->name }}">
-                                                        {!! validation_response('backend.name') !!}
+                                                        {!! validationResponse('backend.name') !!}
                                                     </div>
                                                 </div>
                                             </div>
@@ -50,7 +50,7 @@
                                             <label>@lang('backend.slug') <span class="text-danger">*</span></label>
                                             <input name="slug" type="text" class="form-control" required=""
                                                    value="{{ $category->slug }}">
-                                            {!! validation_response('backend.slug') !!}
+                                            {!! validationResponse('backend.slug') !!}
                                         </div>
                                         <div class="mb-3">
                                             <label>@lang('backend.alt-categories') <span
@@ -64,7 +64,7 @@
                                                     </option>
                                                 @endforeach
                                             </select>
-                                            {!! validation_response('backend.alt-categories') !!}
+                                            {!! validationResponse('backend.alt-categories') !!}
                                         </div>
                                     </div>
                                 </div>

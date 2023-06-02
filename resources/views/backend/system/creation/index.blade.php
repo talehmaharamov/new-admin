@@ -30,7 +30,7 @@
                                             <label>@lang('backend.name') <span class="text-danger">*</span></label>
                                             <input type="text" name="name" class="form-control" required=""
                                                    placeholder="News">
-                                            {!! validation_response('backend.name') !!}
+                                            {!! validationResponse('backend.name') !!}
                                         </div>
                                     </div>
                                     <div class="d-flex mb-4">

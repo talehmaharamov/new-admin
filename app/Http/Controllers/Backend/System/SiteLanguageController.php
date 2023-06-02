@@ -32,7 +32,7 @@ class SiteLanguageController extends Controller
     {
         abort_if(Gate::denies('languages create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
         try {
-            $icon = upload('flags', $request->file('icon'));
+            $icon = uploadImage('flags', $request->file('icon'));
             $siteLanguage = new SiteLanguage();
             $siteLanguage->name = $request->name;
             $siteLanguage->code = $request->code;
@@ -53,7 +53,7 @@ class SiteLanguageController extends Controller
         try {
             if ($request->hasFile('icon')) {
                 unlink(SiteLanguage::find($id)->icon);
-                $icon = upload('icons', $request->file('icon'));
+                $icon = uploadImage('icons', $request->file('icon'));
             }
             SiteLanguage::find($id)->update([
                 'name' => $request->name,

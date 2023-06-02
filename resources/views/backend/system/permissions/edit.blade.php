@@ -19,7 +19,7 @@
                                 <div class="mb-3">
                                     <label>@lang('backend.name') <span class="text-danger">*</span></label>
                                     <input type="text" name="name" class="form-control" required=""  value="{{ $permission->name }}" placeholder="permissions index">
-                                    {!! validation_response('backend.name') !!}
+                                    {!! validationResponse('backend.name') !!}
                                 </div>
                                 <div class="mb-3">
                                     <label>@lang('backend.guard-name') <span class="text-danger">*</span></label>
@@ -27,7 +27,7 @@
                                         <option  @if($permission->guard_name == 'admin') selected @endif value="admin">Admin</option>
                                         <option @if($permission->guard_name == 'web') selected @endif value="web">Web</option>
                                     </select>
-                                    {!! validation_response('backend.guard-name') !!}
+                                    {!! validationResponse('backend.guard-name') !!}
                                 </div>
                                 @include('backend.templates.components.buttons')
                             </form>

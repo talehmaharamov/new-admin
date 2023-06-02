@@ -15,7 +15,7 @@
                                     @include('backend.templates.components.card-col-12',['variable' => 'product'])
                                     @include('backend.templates.components.multi-lan-tab')
                                     <div class="tab-content p-3 text-muted">
-                                        @foreach(active_langs() as $lan)
+                                        @foreach(getActiveLanguages() as $lan)
                                             <div class="tab-pane @if($loop->first) active show @endif"
                                                  id="{{ $lan->code }}"
                                                  role="tabpanel">

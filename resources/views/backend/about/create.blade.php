@@ -15,7 +15,7 @@
                                     @include('backend.templates.components.card-col-12',['variable' => 'about'])
                                     @include('backend.templates.components.multi-lan-tab')
                                     <div class="tab-content p-3 text-muted">
-                                        @foreach(active_langs() as $lan)
+                                        @foreach(getActiveLanguages() as $lan)
                                             <div class="tab-pane @if($loop->first) active show @endif"
                                                  id="{{ $lan->code }}"
                                                  role="tabpanel">
@@ -25,7 +25,7 @@
                                                         <input name="title[{{ $lan->code }}]" type="text"
                                                                class="form-control"
                                                                required="" placeholder="@lang('backend.title')">
-                                                        {!! validation_response('backend.title') !!}
+                                                        {!! validationResponse('backend.title') !!}
                                                     </div>
                                                     <div class="mb-3">
                                                         <label>@lang('backend.description') <span
@@ -35,7 +35,7 @@
                                                                   id="elm{{$lan->code}}1"
                                                                   required=""
                                                                   placeholder="@lang('backend.description')"></textarea>
-                                                        {!! validation_response('backend.description') !!}
+                                                        {!! validationResponse('backend.description') !!}
                                                     </div>
                                                     <div class="mb-3">
                                                         <label>@lang('backend.photo')</label>

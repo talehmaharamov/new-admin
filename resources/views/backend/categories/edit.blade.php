@@ -17,7 +17,7 @@
                                     </div>
                                 </div>
                                 <ul class="nav nav-pills nav-justified" role="tablist">
-                                    @foreach(active_langs() as $lan)
+                                    @foreach(getActiveLanguages() as $lan)
                                     <li class="nav-item waves-effect waves-light">
                                         <a class="nav-link @if($loop->first) active @endif" data-bs-toggle="tab" href="#{{ $lan->code }}" role="tab" aria-selected="true">
                                             <span class="d-block d-sm-none"><i class="fas fa-flag">&nbsp; {{ $lan->code }}</i></span>
@@ -27,7 +27,7 @@
                                     @endforeach
                                 </ul>
                                 <div class="tab-content p-3 text-muted">
-                                    @foreach(active_langs() as $lan)
+                                    @foreach(getActiveLanguages() as $lan)
                                     <div class="tab-pane @if($loop->first) active show @endif" id="{{ $lan->code }}" role="tabpanel">
                                         <div class="form-group row">
                                             <div class="mb-3">

@@ -16,7 +16,7 @@
                                     @include('backend.templates.components.card-col-12',['variable' => 'slider'])
                                     @include('backend.templates.components.multi-lan-tab')
                                     <div class="tab-content p-3 text-muted">
-                                        @foreach(active_langs() as $lan)
+                                        @foreach(getActiveLanguages() as $lan)
                                             <div class="tab-pane @if($loop->first) active show @endif"
                                                  id="{{ $lan->code }}"
                                                  role="tabpanel">
@@ -26,7 +26,7 @@
                                                         <input name="title[{{ $lan->code }}]" type="text"
                                                                class="form-control"
                                                                required="" value="{{ $slider->translate($lan->code)->title ?? __('backend.translation-not-found') }}">
-                                                        {!! validation_response('backend.title') !!}
+                                                        {!! validationResponse('backend.title') !!}
                                                     </div>
                                                 </div>
                                             </div>
@@ -37,7 +37,7 @@
                                                 @if(file_exists($slider->photo))
                                                     <img src="{{ asset($slider->photo) }}" class="form-control mt-2">
                                                 @endif
-                                                {!! validation_response('backend.photo') !!}
+                                                {!! validationResponse('backend.photo') !!}
                                             </div>
                                             <div class="mb-3">
                                                 <label>@lang('backend.alt') <span class="text-danger">*</span></label>

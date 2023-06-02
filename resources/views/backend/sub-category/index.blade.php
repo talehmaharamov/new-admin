@@ -30,7 +30,7 @@
                             <tr>
                                 <th>ID</th>
                                 <th>@lang('backend.slug'):</th>
-                                @foreach(active_langs() as $lan)
+                                @foreach(getActiveLanguages() as $lan)
                                     <th>@lang('backend.name')({{ $lan->code }}):</th>
                                 @endforeach
                                 <th>@lang('backend.actions'):</th>
@@ -41,7 +41,7 @@
                                 <tr>
                                     <td>{{ $category->id }}</td>
                                     <td>{{ $category->slug }}</td>
-                                    @foreach(active_langs() as $lan)
+                                    @foreach(getActiveLanguages() as $lan)
                                         <td>{{ $category->translate($lan->code)->name }}</td>
                                     @endforeach
                                     <td class="text-center">

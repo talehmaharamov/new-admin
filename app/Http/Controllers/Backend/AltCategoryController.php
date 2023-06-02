@@ -19,27 +19,27 @@ class AltCategoryController extends Controller
 {
     public function index()
     {
-        check_permission('categories index');
+        checkPermission('categories index');
         $categories = AltCategory::all();
         return view('backend.alt-categories.index', get_defined_vars());
     }
 
     public function create()
     {
-        check_permission('categories create');
+        checkPermission('categories create');
         $categories = Category::all();
         return view('backend.alt-categories.create', get_defined_vars());
     }
 
     public function store(CreateRequest $request)
     {
-        check_permission('categories create');
+        checkPermission('categories create');
         try {
             $commonCategory = Category::where('id', $request->category)->with('alt')->first();
             $category = new AltCategory();
             $category->slug = $request->slug;
             $commonCategory->alt()->save($category);
-            foreach (active_langs() as $lc) {
+            foreach (getActiveLanguages() as $lc) {
                 $trans = new AltCategoryTranslation();
                 $trans->name = $request->name[$lc->code];
                 $trans->locale = $lc->code;
@@ -56,7 +56,7 @@ class AltCategoryController extends Controller
 
     public function edit($id)
     {
-        check_permission('categories edit');
+        checkPermission('categories edit');
         $category = AltCategory::find($id);
         $categories = Category::all();
         return view('backend.alt-categories.edit', get_defined_vars());
@@ -64,13 +64,13 @@ class AltCategoryController extends Controller
 
     public function update(UpdateRequest $request, $id)
     {
-        check_permission('categories edit');
+        checkPermission('categories edit');
         $category = AltCategory::find($id);
         try {
             DB::transaction(function () use ($request, $category) {
                 $category->slug = $request->slug;
                 $category->category_id = $request->category;
-                foreach (active_langs() as $lang) {
+                foreach (getActiveLanguages() as $lang) {
                     $category->translate($lang->code)->name = $request->name[$lang->code];
                 }
                 $category->save();
@@ -85,13 +85,13 @@ class AltCategoryController extends Controller
 
     public function delete($id)
     {
-        check_permission('categories delete');
+        checkPermission('categories delete');
         return CRUDHelper::remove_item('\App\Models\AltCategory', $id);
     }
 
     public function status($id)
     {
-        check_permission('categories edit');
+        checkPermission('categories edit');
         return CRUDHelper::status('\App\Models\AltCategory', $id);
     }
 }

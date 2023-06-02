@@ -23,7 +23,6 @@ class MainModel extends Command
         if (File::exists($stubPath)) {
             $stubContent = File::get($stubPath);
             File::put($controllerPath, $content);
-
             $this->info('Model content replaced with the custom stub.');
         } else {
             $this->error('Custom stub file not found.');

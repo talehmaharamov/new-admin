@@ -21,13 +21,13 @@
                                         <label>@lang('backend.name') <span class="text-danger">*</span></label>
                                         <input type="text" name="name" class="form-control" required=""
                                                value="{{ $currentSetting->name }}">
-                                        {!! validation_response('backend.name') !!}
+                                        {!! validationResponse('backend.name') !!}
                                     </div>
                                     <div class="mb-3">
                                         <label>@lang('backend.link') <span class="text-danger">*</span></label>
                                         <textarea class="form-control" name="link" rows="5"
                                                   required>{{ $currentSetting->link }}</textarea>
-                                        {!! validation_response('backend.link') !!}
+                                        {!! validationResponse('backend.link') !!}
                                     </div>
                                     <div class="mb-0 text-center">
                                         <div>

@@ -47,11 +47,11 @@
                                     <td class="text-center">{{ $link->link }}</td>
                                     <td>{{ date('d.m.Y H:i:s',strtotime($link->created_at))}}</td>
                                     <td class="text-center">
-                                        {!! admin_status('backend.statusLink',$link) !!}
+                                        {!! statusLink('backend.statusLink',$link) !!}
                                     </td>
                                     <td class="text-center">
-                                        {!! admin_edit('backend.useful-links.edit','useful_link',$link->id) !!}
-                                        {!! admin_delete('backend.delLinks',$link->id) !!}
+                                        {!! editLink('backend.useful-links.edit','useful_link',$link->id) !!}
+                                        {!! deleteLink('backend.delLinks',$link->id) !!}
                                     </td>
                                 </tr>
                             @endforeach

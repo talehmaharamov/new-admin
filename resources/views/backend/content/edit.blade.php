@@ -19,7 +19,7 @@
                                     @include('backend.templates.components.card-col-12',['variable' => 'content'])
                                     @include('backend.templates.components.multi-lan-tab')
                                     <div class="tab-content p-3 text-muted">
-                                        @foreach(active_langs() as $lan)
+                                        @foreach(getActiveLanguages() as $lan)
                                             <div class="tab-pane @if($loop->first) active show @endif"
                                                  id="{{ $lan->code }}"
                                                  role="tabpanel">
@@ -30,7 +30,7 @@
                                                                class="form-control"
                                                                required=""
                                                                value="{{ $content->translate($lan->code)->name ?? __('backend.translation-not-found') }}">
-                                                        {!! validation_response('backend.name') !!}
+                                                        {!! validationResponse('backend.name') !!}
                                                     </div>
                                                     <div class="mb-3">
                                                         <label>@lang('backend.content') <span
@@ -40,7 +40,7 @@
                                                                   class="form-control"
                                                                   required=""
                                                                   placeholder="@lang('backend.content')">{!! $content->translate($lan->code)->content ?? __('backend.translation-not-found') !!}</textarea>
-                                                        {!! validation_response('backend.content') !!}
+                                                        {!! validationResponse('backend.content') !!}
                                                     </div>
                                                 </div>
                                             </div>

@@ -3,5 +3,5 @@
     <input name="photo" type="file"
            class="form-control"
            required="" >
-    {!! validation_response('backend.photo') !!}
+    {!! validationResponse('backend.photo') !!}
 </div>

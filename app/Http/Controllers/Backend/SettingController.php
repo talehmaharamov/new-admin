@@ -14,19 +14,19 @@ class SettingController extends Controller
 {
     public function index()
     {
-        check_permission('settings index');
+        checkPermission('settings index');
         $settings = Setting::all();
         return view('backend.system.settings.index', get_defined_vars());
     }
     public function create()
     {
-        check_permission('settings create');
+        checkPermission('settings create');
         return view('backend.system.settings.create');
     }
 
     public function store(CreateRequest $request)
     {
-        check_permission('settings create');
+        checkPermission('settings create');
         try {
             $setting = new Setting();
             $setting->name = $request->name;
@@ -43,7 +43,7 @@ class SettingController extends Controller
     }
     public function edit($id)
     {
-        check_permission('settings edit');
+        checkPermission('settings edit');
         $currentSetting = Setting::find($id);
         return view('backend.system.settings.edit', get_defined_vars());
     }
@@ -67,12 +67,12 @@ class SettingController extends Controller
 
     public function delete($id)
     {
-        check_permission('settings delete');
+        checkPermission('settings delete');
         return CRUDHelper::remove_item('\App\Models\Setting', $id);
     }
     public function status($id)
     {
-        check_permission('settings edit');
+        checkPermission('settings edit');
         return CRUDHelper::status('\App\Models\Setting', $id);
     }
 }

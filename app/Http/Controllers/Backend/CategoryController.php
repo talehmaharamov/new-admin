@@ -47,7 +47,7 @@ class CategoryController extends Controller
         try {
             DB::transaction(function () use ($request, $category) {
                 $category->slug = $request->slug;
-                foreach (active_langs() as $lang) {
+                foreach (getActiveLanguages() as $lang) {
                     $category->translate($lang->code)->name = $request->name[$lang->code];
                 }
                 $category->save();
@@ -67,7 +67,7 @@ class CategoryController extends Controller
             $category->slug = $request->slug;
             $category->status = 1;
             $category->save();
-            foreach (active_langs() as $lc) {
+            foreach (getActiveLanguages() as $lc) {
                 $trans = new CategoryTranslation();
                 $trans->name = $request->name[$lc->code];
                 $trans->locale = $lc->code;

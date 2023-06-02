@@ -5,5 +5,5 @@
               class="form-control" id="elm{{$lan->code}}1"
               required=""
               placeholder="@lang('backend.description')"></textarea>
-    {!! validation_response('backend.description') !!}
+    {!! validationResponse('backend.description') !!}
 </div>

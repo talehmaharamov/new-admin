@@ -13,7 +13,7 @@ class AboutSeeder extends Seeder
     {
         $about = new About();
         $about->save();
-        foreach (active_langs() as $lang) {
+        foreach (getActiveLanguages() as $lang) {
             $trans = new AboutTranslation();
             $trans->about_id = $about->id;
             $trans->description = 'firstPhoto';

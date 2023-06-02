@@ -16,7 +16,7 @@
                                     @include('backend.templates.components.card-col-12',['variable' => 'about'])
                                     @include('backend.templates.components.multi-lan-tab')
                                     <div class="tab-content p-3 text-muted">
-                                        @foreach(active_langs() as $lan)
+                                        @foreach(getActiveLanguages() as $lan)
                                             <div class="tab-pane @if($loop->first) active show @endif"
                                                  id="{{ $lan->code }}"
                                                  role="tabpanel">
@@ -27,7 +27,7 @@
                                                                class="form-control"
                                                                required=""
                                                                value="{{ $about->translate(app()->getLocale())->title ?? __('backend.translation-not-found') }}">
-                                                        {!! validation_response('backend.title') !!}
+                                                        {!! validationResponse('backend.title') !!}
                                                     </div>
                                                     <div class="mb-3">
                                                         <label>@lang('backend.description') <span
@@ -36,7 +36,7 @@
                                                                   class="form-control"
                                                                   id="elm{{$lan->code}}1"
                                                                   required="">{!! $about->translate(app()->getLocale())->description ?? __('backend.translation-not-found') !!}</textarea>
-                                                        {!! validation_response('backend.description') !!}
+                                                        {!! validationResponse('backend.description') !!}
                                                     </div>
                                                 </div>
                                             </div>

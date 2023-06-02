@@ -16,20 +16,20 @@ class SliderController extends Controller
 {
     public function index()
     {
-        check_permission('slider index');
+        checkPermission('slider index');
         $sliders = Slider::orderBy('order')->get();
         return view('backend.slider.index', get_defined_vars());
     }
 
     public function create()
     {
-        check_permission('slider create');
+        checkPermission('slider create');
         return view('backend.slider.create');
     }
 
     public function store(Request $request)
     {
-        check_permission('slider create');
+        checkPermission('slider create');
         try {
             if (empty(Slider::first())) {
                 $sliderOrder = 1;
@@ -37,11 +37,11 @@ class SliderController extends Controller
                 $sliderOrder = Slider::all()->last()->order + 1;
             }
             $slider = new Slider();
-            $slider->photo = upload('sliders', $request->file('photo'));
+            $slider->photo = uploadImage('sliders', $request->file('photo'));
             $slider->alt = $request->alt;
             $slider->order = $sliderOrder;
             $slider->save();
-            foreach (active_langs() as $lang) {
+            foreach (getActiveLanguages() as $lang) {
                 $sliderTranslation = new SliderTranslation();
                 $sliderTranslation->locale = $lang->code;
                 $sliderTranslation->slider_id = $slider->id;
@@ -58,7 +58,7 @@ class SliderController extends Controller
 
     public function update(Request $request, $id)
     {
-        check_permission('slider edit');
+        checkPermission('slider edit');
         try {
             $slider = Slider::find($id);
             DB::transaction(function () use ($request, $slider) {
@@ -66,9 +66,9 @@ class SliderController extends Controller
                     if (file_exists($slider->photo)) {
                         unlink(public_path($slider->photo));
                     }
-                    $slider->photo = upload('sliders', $request->file('photo'));
+                    $slider->photo = uploadImage('sliders', $request->file('photo'));
                 }
-                foreach (active_langs() as $lang) {
+                foreach (getActiveLanguages() as $lang) {
                     $slider->translate($lang->code)->title = $request->title[$lang->code];
                 }
                 $slider->alt = $request->alt;
@@ -84,14 +84,14 @@ class SliderController extends Controller
 
     public function edit($id)
     {
-        check_permission('slider edit');
+        checkPermission('slider edit');
         $slider = Slider::find($id);
         return view('backend.slider.edit', get_defined_vars());
     }
 
     public function sliderOrder(Request $request, $id)
     {
-        check_permission('slider edit');
+        checkPermission('slider edit');
         try {
             $slider = Slider::find($id);
             $orders = [];
@@ -134,13 +134,13 @@ class SliderController extends Controller
 
     public function delSlider($id)
     {
-        check_permission('slider delete');
+        checkPermission('slider delete');
         return CRUDHelper::remove_item('\App\Models\Slider', $id);
     }
 
     public function sliderStatus($id)
     {
-        check_permission('slider edit');
+        checkPermission('slider edit');
         return CRUDHelper::status('\App\Models\Slider', $id);
     }
 }

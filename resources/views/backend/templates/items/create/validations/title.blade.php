@@ -3,5 +3,5 @@
     <input name="title[{{ $lan->code }}]" type="text"
            class="form-control"
            required="" placeholder="@lang('backend.title')">
-    {!! validation_response('backend.title') !!}
+    {!! validationResponse('backend.title') !!}
 </div>

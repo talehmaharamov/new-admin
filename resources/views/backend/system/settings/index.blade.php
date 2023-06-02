@@ -60,13 +60,13 @@
                             <label>@lang('backend.name') <span class="text-danger">*</span></label>
                             <input type="text" name="name" class="form-control" required=""
                                    placeholder="instagram">
-                            {!! validation_response('backend.name') !!}
+                            {!! validationResponse('backend.name') !!}
                         </div>
                         <div class="mb-3">
                             <label>@lang('backend.link') <span class="text-danger">*</span></label>
                             <textarea class="form-control" name="link" rows="5" required
                                       placeholder="https://www.instagram.com/@username"></textarea>
-                            {!! validation_response('backend.link') !!}
+                            {!! validationResponse('backend.link') !!}
                         </div>
                         <div class="mb-3">
                             <label>@lang('backend.type') <span class="text-danger">*</span></label>
@@ -76,7 +76,7 @@
                                 <option
                                     value="{{ \App\Http\Enums\SettingEnum::SOSIAL }}">@lang('backend.sosial')</option>
                             </select>
-                            {!! validation_response('backend.name') !!}
+                            {!! validationResponse('backend.name') !!}
                         </div>
                         @include('backend.templates.components.modal-button')
                     </form>

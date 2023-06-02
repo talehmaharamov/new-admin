@@ -33,7 +33,7 @@ class ReportController extends Controller
 
     public function delReport($log)
     {
-        check_permission('report delete');
+        checkPermission('report delete');
         return CRUDHelper::remove_item('\Spatie\Activitylog\Models\Activity', $log);
     }
 }

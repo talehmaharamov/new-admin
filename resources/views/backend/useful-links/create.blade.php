@@ -19,7 +19,7 @@
                                     <div class="mb-3">
                                         <label>@lang('backend.name') <span class="text-danger">*</span></label>
                                         <input type="file" name="photo" class="form-control" required>
-                                        {!! validation_response('backend.photo') !!}
+                                        {!! validationResponse('backend.photo') !!}
                                     </div>
                                     <div class="mb-3">
                                         <label>@lang('backend.link') <span class="text-danger">*</span></label>

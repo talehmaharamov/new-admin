@@ -30,7 +30,7 @@ class PermissionsSeeder extends Seeder
             'service',
         ];
         foreach ($permissions as $permission) {
-            add_permission($permission);
+            addPermission($permission);
         }
         $singlePermissions = [
             'contact index',

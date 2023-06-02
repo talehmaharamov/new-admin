@@ -16,7 +16,7 @@ class AdminController extends Controller
 {
     public function index()
     {
-        check_permission('users index');
+        checkPermission('users index');
         $users = Admin::all();
         return view('backend.system.users.index', get_defined_vars());
     }
@@ -29,7 +29,7 @@ class AdminController extends Controller
 
     public function delAdmin($id)
     {
-       check_permission('users delete');
+       checkPermission('users delete');
        CRUDHelper::remove_item('App\Models\Admin',$id);
     }
     public function store(CreateRequest $request)

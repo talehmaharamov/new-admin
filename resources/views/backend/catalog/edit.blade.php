@@ -16,7 +16,7 @@
                                     @include('backend.templates.components.card-col-12',['variable' => 'catalog'])
                                     @include('backend.templates.components.multi-lan-tab')
                                     <div class="tab-content p-3 text-muted">
-                                        @foreach(active_langs() as $lan)
+                                        @foreach(getActiveLanguages() as $lan)
                                             <div class="tab-pane @if($loop->first) active show @endif"
                                                  id="{{ $lan->code }}"
                                                  role="tabpanel">
@@ -27,7 +27,7 @@
                                                                class="form-control"
                                                                required=""
                                                                value="{{ $catalog->translate($lan->code)->name ?? '-' }}">
-                                                        {!! validation_response('backend.name') !!}
+                                                        {!! validationResponse('backend.name') !!}
                                                     </div>
                                                     <div class="mb-3">
                                                         <label>@lang('backend.description') <span
@@ -35,7 +35,7 @@
                                                         <textarea name="description[{{ $lan->code }}]" type="text"
                                                                   class="form-control" id="elm{{$lan->code}}1"
                                                                   required="">{!! $catalog->translate($lan->code)->description ?? '-' !!}</textarea>
-                                                        {!! validation_response('backend.description') !!}
+                                                        {!! validationResponse('backend.description') !!}
                                                     </div>
                                                 </div>
                                             </div>
@@ -47,7 +47,7 @@
                                             @if(file_exists($catalog->photo))
                                                 <img src="{{ asset($catalog->photo) }}" class="mt-3 w-100">
                                             @endif
-                                            {!! validation_response('backend.photo') !!}
+                                            {!! validationResponse('backend.photo') !!}
                                         </div>
                                         <div class="mb-3">
                                             <label>@lang('backend.photos')</label>

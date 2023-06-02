@@ -73,7 +73,7 @@
                                             <span id="show_current_password" class="input-group-text"><i
                                                     id="show_current_icon" class="fas fa-eye"></i></span>
                                         </div>
-                                        {!! validation_response('backend.current-password') !!}
+                                        {!! validationResponse('backend.current-password') !!}
                                     </div>
                                     <div class="mb-3">
                                         <label>@lang('backend.new-password') <span class="text-danger">*</span></label>
@@ -86,7 +86,7 @@
                                             <span id="generate_password" class="input-group-text"><i
                                                                               class="fas fa-key"></i></span>
                                         </div>
-                                        {!! validation_response('backend.new-password') !!}
+                                        {!! validationResponse('backend.new-password') !!}
                                     </div>
                                     <div class="mb-3">
                                         <label>@lang('backend.cnew-password') <span class="text-danger">*</span></label>
@@ -95,7 +95,7 @@
                                                    name="password_confirmation" class="form-control"
                                                    data-parsley-equalto="#pass2" required="">
                                         </div>
-                                        {!! validation_response('backend.cnew-password') !!}
+                                        {!! validationResponse('backend.cnew-password') !!}
                                     </div>
                                     <div class="mb-0 text-center">
                                         <div>

@@ -65,7 +65,7 @@
                             <label>@lang('backend.name') <span class="text-danger">*</span></label>
                             <input type="text" name="permissionName" class="form-control" required=""
                                    placeholder="permissions">
-                            {!! validation_response('backend.name') !!}
+                            {!! validationResponse('backend.name') !!}
                         </div>
 
                         <div class="mb-3">
