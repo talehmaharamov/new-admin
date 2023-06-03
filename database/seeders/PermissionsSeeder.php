@@ -49,6 +49,8 @@ class PermissionsSeeder extends Seeder
             $singPer->group_name = $group;
             $singPer->guard_name = 'admin';
             $singPer->save();
+
+
         }
     }
 }
