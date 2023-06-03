@@ -1,1 +1,1 @@
-gead.az
+taleh maharramov

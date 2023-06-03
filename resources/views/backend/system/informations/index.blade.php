@@ -20,23 +20,13 @@
                                         <label>@lang('backend.name') <span class="text-danger">*</span></label>
                                         <input type="text" id="validationCustom" name="name" class="form-control"
                                                required="" value="{{ auth()->user()->name }}">
-                                        <div class="valid-feedback">
-                                            @lang('backend.name') @lang('messages.is-correct')
-                                        </div>
-                                        <div class="invalid-feedback">
-                                            @lang('backend.name') @lang('messages.not-correct')
-                                        </div>
+                                        {!! validationResponse('backend.name') !!}
                                     </div>
                                     <div class="mb-3">
                                         <label>@lang('backend.email') <span class="text-danger">*</span></label>
                                         <input type="text" id="validationCustom" class="form-control" name="email"
                                                required="" value="{{ auth()->user()->email }}">
-                                        <div class="valid-feedback">
-                                            @lang('backend.email') @lang('messages.is-correct')
-                                        </div>
-                                        <div class="invalid-feedback">
-                                            @lang('backend.email') @lang('messages.not-correct')
-                                        </div>
+                                        {!! validationResponse('backend.email') !!}
                                     </div>
                                     <div class="mb-0 text-center">
                                         <div>

@@ -1,4 +1,6 @@
-<?php return array (
+<?php
+
+return array (
   'about' => 'Haqqımızda',
   'actions' => 'Hərəkətlər',
   'active' => 'Aktiv',
@@ -50,6 +52,7 @@
   'confirm-delete' => 'Silinməni təsdiqləyin',
   'confrim' => 'Təsdiq edin',
   'congrats' => 'Təbriklər!',
+  'contact' => 'Bizimlə əlaqə',
   'contact-information' => 'Əlaqə məlumatları',
   'contact-us' => 'Bizimlə əlaqə',
   'content' => 'Kontent',

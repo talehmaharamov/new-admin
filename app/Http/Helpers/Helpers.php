@@ -39,14 +39,11 @@ function uploadImage(string $path, $file): string
 {
     try {
         $imagePath = public_path('images/' . $path);
-
         if (!File::isDirectory($imagePath)) {
             File::makeDirectory($imagePath, 0777, true, true);
         }
-
         $filename = uniqid() . '.webp';
         resizeAndSaveImage($file, $imagePath . '/' . $filename);
-
         return 'images/' . $path . '/' . $filename;
     } catch (Exception $e) {
         throw new Exception($e->getMessage());
@@ -79,17 +76,14 @@ function uploadMultipleImages(string $path, array $files): array
     try {
         $imagePath = public_path('images/' . $path);
         $result = [];
-
         if (!File::isDirectory($imagePath)) {
             File::makeDirectory($imagePath, 0777, true, true);
         }
-
         foreach ($files as $file) {
             $filename = uniqid() . '.webp';
             resizeAndSaveImage($file, $imagePath . '/' . $filename);
             $result[] = "images/$path/$filename";
         }
-
         return $result;
     } catch (Exception $e) {
         throw new Exception($e->getMessage());
@@ -163,19 +157,3 @@ function convertNumber(int $value): string
     }
 }
 
-function findUniqueTranslationKeys()
-{
-    $languages = array_diff(scandir(resource_path('lang')), ['.', '..']);
-    $uniqueKeys = [];
-
-    foreach ($languages as $lang) {
-        $keys = include resource_path("lang/{$lang}/backend.php");
-        foreach ($languages as $otherLang) {
-            if ($otherLang !== $lang) {
-                $otherKeys = include resource_path("lang/{$otherLang}/backend.php");
-                $uniqueKeys[$lang][$otherLang] = array_diff_key($keys, $otherKeys);
-            }
-        }
-    }
-    return $uniqueKeys;
-}

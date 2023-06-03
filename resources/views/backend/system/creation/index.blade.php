@@ -1,5 +1,5 @@
 @extends('master.backend')
-@section('title',__('backend.languages'))
+@section('title',__('backend.creation'))
 @section('content')
     <div class="main-content">
         <div class="page-content">
@@ -22,7 +22,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <form action="{{ route('system.creationStore') }}" method="POST"
+                                <form action="{{ route('system.creation.store') }}" method="POST"
                                       class="needs-validation" novalidate="" enctype="multipart/form-data">
                                     @csrf
                                     <div class="d-flex align-items-center mb-3">
@@ -58,6 +58,10 @@
                                                         class="text-danger">*</span></label>
                                                 <div>
                                                     <div>
+                                                        <input type="checkbox" name="mainModel" value="1">
+                                                        <label>Main Model</label>
+                                                    </div>
+                                                    <div>
                                                         <input type="checkbox" name="translationModel" value="1">
                                                         <label>Translation Model</label>
                                                     </div>
@@ -78,7 +82,7 @@
                                                         <label>Backend Route</label>
                                                     </div>
                                                     <div>
-                                                        <input type="checkbox" name="backendRoute"  value="1">
+                                                        <input type="checkbox" name="deleteRoute" value="1">
                                                         <label>Delete Route</label>
                                                     </div>
                                                     <div class="align-items-center">

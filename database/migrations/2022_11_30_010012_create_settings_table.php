@@ -13,7 +13,7 @@ return new class extends Migration
             $table->id();
             $table->string('name',20);
             $table->longText('link');
-            $table->string('type')->default(2);
+            $table->string('type')->default(\App\Http\Enums\SettingEnum::OTHER);
             $table->boolean('status');
             $table->timestamps();
         });

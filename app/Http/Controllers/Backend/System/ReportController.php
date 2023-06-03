@@ -18,7 +18,7 @@ class ReportController extends Controller
         return view('backend.system.report.index', get_defined_vars());
     }
 
-    public function cleanAllReport()
+    public function clean()
     {
         abort_if(Gate::denies('report delete'), Response::HTTP_FORBIDDEN, '403 Forbidden');
         try {
@@ -31,7 +31,7 @@ class ReportController extends Controller
         }
     }
 
-    public function delReport($log)
+    public function delete($log)
     {
         checkPermission('report delete');
         return CRUDHelper::remove_item('\Spatie\Activitylog\Models\Activity', $log);

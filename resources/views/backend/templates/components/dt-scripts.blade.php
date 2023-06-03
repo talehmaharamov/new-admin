@@ -13,3 +13,4 @@
 <script src="{{ asset('backend/libs/datatables.net-responsive/js/dataTables.responsive.min.js') }}"></script>
 <script src="{{ asset('backend/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js') }}"></script>
 <script src="{{ asset('backend/js/pages/datatables.init.js') }}"></script>
+<script src="{{ asset('backend/js/delete-modal.js') }}"></script>

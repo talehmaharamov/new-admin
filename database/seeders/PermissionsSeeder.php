@@ -43,11 +43,12 @@ class PermissionsSeeder extends Seeder
             'dodenv index',
         ];
         foreach ($singlePermissions as $single) {
-            $permission = new \Spatie\Permission\Models\Permission();
-            $permission->name = $single;
-            $permission->group_name = explode(' ', $single)[0];
-            $permission->guard_name = 'admin';
-            $permission->save();
+            $singPer = new \Spatie\Permission\Models\Permission();
+            $singPer->name = $single;
+            list($group) = explode(' ', $single);
+            $singPer->group_name = $group;
+            $singPer->guard_name = 'admin';
+            $singPer->save();
         }
     }
 }
